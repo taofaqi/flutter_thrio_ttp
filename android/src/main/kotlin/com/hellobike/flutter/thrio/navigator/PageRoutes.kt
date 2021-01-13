@@ -144,10 +144,13 @@ internal object PageRoutes : Application.ActivityLifecycleCallbacks {
             return
         }
 
+        Log.e("======================","holder.routes ${holder.routes}")
         if (holder.routes.isEmpty()) {
+            Log.e("======================","44444444444444444444")
             holder.activity?.get()?.finish()
             result(true)
         } else {
+            Log.e("======================","55555555555555555555")
             holder.pop<T>(params, animated, inRoot) { it ->
                 if (it == true) {
                     if (!holder.hasRoute()) {

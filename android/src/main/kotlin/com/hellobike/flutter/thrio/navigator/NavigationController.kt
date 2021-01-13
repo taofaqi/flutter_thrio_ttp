@@ -254,17 +254,22 @@ internal object NavigationController : Application.ActivityLifecycleCallbacks {
             routeAction = RouteAction.POP
 
             val firstHolder = PageRoutes.firstRouteHolder!!
+            Log.e("======================","PageRoutes.routeHolders${PageRoutes.routeHolders}")
             if (PageRoutes.routeHolders.count() == 1 && firstHolder.allRoute().count() < 2) {
+                Log.e("======================","2222222222222222")
                 val activity = firstHolder.activity?.get() ?: return
                 if (activity is ThrioActivity) {
                     PageRoutes.pop<T>(params, animated, true) {
+                        Log.e("======================","it${it}")
                         if (it == false) {
                             firstHolder.activity?.get()?.apply {
                                 if (this is ThrioActivity && this.shouldMoveToBack()) {
+                                    Log.e("======================","888888888888888")
                                     moveTaskToBack(true)
                                 }
                             }
                         } else {
+                            Log.e("======================","9999999999999999")
                             result?.invoke(it == true)
                         }
                     }
@@ -273,7 +278,9 @@ internal object NavigationController : Application.ActivityLifecycleCallbacks {
                 }
                 routeAction = RouteAction.NONE
             } else {
+                Log.e("======================","3333333333333333")
                 PageRoutes.pop<T>(params, animated) {
+                    Log.e("======================","77777777777777777777777")
                     result?.invoke(it == true)
                     routeAction = RouteAction.NONE
                 }

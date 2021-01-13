@@ -78,6 +78,7 @@ object ThrioNavigator {
     @JvmStatic
     fun pop(animated: Boolean = true, result: BooleanCallback = {}) {
         NavigationController.Pop.pop(null, animated, result)
+        Log.e("======================","111111111111")
     }
 
     @JvmStatic
